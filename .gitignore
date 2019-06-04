@@ -6,3 +6,9 @@ bin/Debug/
 obj/Debug/
 
 *.layout
+
+*.depend
+
+bank/bin/Debug/
+
+bank/obj/Debug/
