@@ -13,6 +13,14 @@ Person::Person(string name, string dob, string username, string password)
     this->password = password;
 }
 
+string Person::getName(){
+    return this->name;
+}
+
+void Person::setName(string name){
+    this->name = name;
+}
+
 string Person::getDetails(){
     return ("Name: " + this->name + "\nDate of Birth: " + this->dob +
             "\nUsername: " + this->username + "\nPassword: " + this->password);
