@@ -1,2 +1,6 @@
 
 *.cbp
+
+bin/Debug/
+
+obj/Debug/
