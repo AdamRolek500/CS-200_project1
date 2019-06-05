@@ -2,6 +2,7 @@
 #include <typeinfo>
 #include "person.h"
 #include "teller.h"
+#include "logger.h"
 
 using namespace std;
 
@@ -19,21 +20,24 @@ int main()
 //         << t1.getName() << endl;
 //
 //    t1.setName("New Name");
-    p1.setName("NEW NAME");
+//    p1.setName("NEW NAME");
 //
 //    cout << p1.getDetails() << endl
 //         << endl
 //         << t1.getDetails() << endl;
 
     // Polymorphism
-    Person* ps[2];
-    ps[0] = &t1;
-    ps[1] = &p1;
+//    Person* ps[2];
+//    ps[0] = &t1;
+//    ps[1] = &p1;
+//
+//    for(int i = 0; i < 2; i++){
+//        cout << ps[i]->getDetails();
+//        cout << endl;
+//    }
 
-    for(int i = 0; i < 2; i++){
-        cout << ps[i]->getDetails();
-        cout << endl;
-    }
+    Logger mainLog("test");
+    mainLog.log("it wednesday my dudes");
 
     return 0;
 }

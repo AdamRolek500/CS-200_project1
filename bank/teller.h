@@ -1,7 +1,7 @@
 #ifndef TELLER_H
 #define TELLER_H
 
-#include <person.h>
+#include "person.h"
 #include <sstream>
 
 
