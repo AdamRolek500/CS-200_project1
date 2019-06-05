@@ -7,17 +7,23 @@
 
 class Teller : public Person
 {
-    public:
-        Teller();
-        Teller(string name, string dob, string username, string password, double pay);
+public:
+    Teller();
+    Teller(string name, string dob, string username, string password, double pay);
 
-        double Getpay() { return pay; }
-        void Setpay(double val) { pay = val; }
+    double Getpay()
+    {
+        return pay;
+    }
+    void Setpay(double val)
+    {
+        pay = val;
+    }
 
-        virtual string getDetails();
+    virtual string getDetails();
 
-    private:
-        double pay;
+private:
+    double pay;
 };
 
 #endif // TELLER_H

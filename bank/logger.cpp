@@ -1,8 +1,12 @@
 #include "logger.h"
 
-Logger::Logger(){}
+Logger::Logger()
+{
+    // Do Nothing
+}
 
-Logger::Logger(string fileName){
+Logger::Logger(string fileName)
+{
     // Save this filename and append the current date
     this->fileName = fileName;
     time_t rawtime;
@@ -22,13 +26,14 @@ Logger::Logger(string fileName){
     // open a file in write mode.
     // TODO: TEST THIS ON WINDOWS
     ofstream outfile;
-    outfile.open("logs/" + this->fileName);
+    outfile.open("logs/" + this->fileName); // File path may be platform specific
     outfile << "hey" << endl;
     outfile << "there" << endl;
     outfile.close();
 }
 
-void Logger::log(string message){
+void Logger::log(string message)
+{
     ofstream outfile;
     outfile.open("logs/" + this->fileName, ios_base::app);
     outfile << message << endl;

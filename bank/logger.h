@@ -20,16 +20,15 @@ using namespace std;
 
 class Logger
 {
-    public:
-        /** Constructors */
-        Logger();
-        Logger(string fileName);
-        /** Utilities */
-        void log(string message);
+public:
+    /** Constructors */
+    Logger();
+    Logger(string fileName);
+    /** Utilities */
+    void log(string message);
 
-    private:
-        string workingDirectory; // Working directory for the project
-        string fileName; // Name of the log file
+private:
+    string fileName; // Name of the log file
 };
 
 #endif // LOGGER_H
