@@ -1,3 +1,4 @@
+
 /**
     logger.h
     Purpose: Create concurrent log files that are dated and matained in a file structure

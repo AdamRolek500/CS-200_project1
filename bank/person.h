@@ -19,7 +19,8 @@ public:
 
     string getUsername();
     void setUsername(string username);
-
+    
+	string getPassword(); 
     void setPassword(string password);
 
     bool login(string username, string password);

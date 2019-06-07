@@ -1,4 +1,4 @@
-#include "person.h"
+#include "Person.h"
 
 Person::Person()
 {
@@ -21,6 +21,36 @@ string Person::getName()
 void Person::setName(string name)
 {
     this->name = name;
+}
+
+string Person::getDOB( )
+{
+	return this->dob;
+}
+
+void Person::setDOB(string dob)
+{
+	this->dob = dob;	
+}
+
+string Person::getUsername()
+{
+	return this->username;
+}
+
+void Person::setUsername(string username)
+{
+	this->username = username;
+}
+
+string Person::getPassword ()
+{
+	return this->password;
+}
+
+void Person::setPassword(string password)
+{
+	this->password = password;
 }
 
 string Person::getDetails()

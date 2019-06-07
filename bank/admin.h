@@ -1,16 +1,17 @@
+
     
-#ifndef TELLER_H
-#define TELLER_H
+#ifndef ADMIN_H
+#define ADMIN_H
 
 #include "Person.h"
 #include <sstream>
 
 
-class Teller : public Person
+class Admin : public Person
 {
 public:
-    Teller();
-    Teller(string name, string dob, string username, string password, double pay);
+    Admin();
+    Admin(string name, string dob, string username, string password, double pay);
 
     double Getpay()
     {
@@ -27,4 +28,4 @@ private:
     double pay;
 };
 
-#endif // TELLER_H
+#endif // ADMIN_H
