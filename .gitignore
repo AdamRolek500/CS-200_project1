@@ -20,3 +20,11 @@ bank/cmake-build-debug/
 bank/logs/
 
 bank/CMakeLists\.txt
+
+*.o
+
+*.win
+
+*.dev
+
+*.exe

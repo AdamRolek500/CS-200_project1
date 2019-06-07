@@ -39,11 +39,11 @@ int main()
 //        cout << endl;
 //    }
 
-    Logger mainLog("test");
-    mainLog.log("it wednesday my dudes");
-    Logger adminLog("Admin_Log");
-    adminLog.log("There was an error\tmy\ndude!");
-    adminLog.log("jeiabjfbrjajdibn");
+//    Logger mainLog("test");
+//    mainLog.log("it wednesday my dudes");
+//    Logger adminLog("Admin_Log");
+//    adminLog.log("There was an error\tmy\ndude!");
+//    adminLog.log("jeiabjfbrjajdibn");
 
 
     Menu main("Main Menu");
