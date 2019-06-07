@@ -1,20 +1,18 @@
 #include "logger.h"
 
-Logger::Logger()
-{
+Logger::Logger() {
     // Do Nothing
 }
 
-Logger::Logger(string fileName)
-{
+Logger::Logger(string fileName) {
     // Save this filename and append the current date
     this->fileName = fileName;
     time_t rawtime;
-    struct tm * timeinfo;
-    char buffer [80];
+    struct tm *timeinfo;
+    char buffer[80];
     time(&rawtime);
     timeinfo = localtime(&rawtime);
-    strftime(buffer,80,"_%m_%d_%Y.txt",timeinfo);
+    strftime(buffer, 80, "_%m_%d_%Y.txt", timeinfo);
     this->fileName += buffer;
 
     // Creating a directory
@@ -32,8 +30,7 @@ Logger::Logger(string fileName)
     outfile.close();
 }
 
-void Logger::log(string message)
-{
+void Logger::log(string message) {
     ofstream outfile;
     outfile.open("logs/" + this->fileName, ios_base::app);
     outfile << message << endl;

@@ -12,3 +12,11 @@ obj/Debug/
 bank/bin/Debug/
 
 bank/obj/Debug/
+
+bank/\.idea/
+
+bank/cmake-build-debug/
+
+bank/logs/
+
+bank/CMakeLists\.txt

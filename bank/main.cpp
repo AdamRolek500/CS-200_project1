@@ -3,8 +3,11 @@
 #include "person.h"
 #include "teller.h"
 #include "logger.h"
+#include "menu.h"
 
 using namespace std;
+
+void audit();
 
 int main()
 {
@@ -38,6 +41,19 @@ int main()
 
     Logger mainLog("test");
     mainLog.log("it wednesday my dudes");
+    Logger adminLog("Admin_Log");
+    adminLog.log("There was an error\tmy\ndude!");
+    adminLog.log("jeiabjfbrjajdibn");
 
-    return 0;
+
+    Menu main("Main Menu");
+    main.addOption("Audit", audit);
+    main.addOption("add", audit);
+    main.addOption("there", audit);
+    while(1)
+        main.run();
+}
+
+void audit(){
+    cout << "You are in the audit function";
 }
