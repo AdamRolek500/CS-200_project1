@@ -26,6 +26,8 @@ public:
     bool login(string username, string password);
 
     virtual string getDetails();
+    virtual string getType();
+    virtual string save();
 
 private:
     string name;

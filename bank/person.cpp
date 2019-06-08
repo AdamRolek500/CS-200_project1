@@ -1,5 +1,19 @@
 #include "Person.h"
 
+string encrypt(string to_encrypt, char key){
+    string output = to_encrypt;
+    string fin = "";
+
+    for (int i = 0; i < to_encrypt.size(); i++)
+        output[i] = to_encrypt[i] ^ key;
+
+    for(int i = 0; i < output.size(); i++){
+        fin += std::to_string((int)output[i]) + " ";
+    }
+
+    return fin;
+}
+
 Person::Person()
 {
     //ctor
@@ -53,8 +67,24 @@ void Person::setPassword(string password)
 	this->password = password;
 }
 
+bool Person::login(string username, string password){
+	return (this->getUsername() == username && this->getPassword() == password);
+}
+
 string Person::getDetails()
 {
     return ("Name: " + this->name + "\nDate of Birth: " + this->dob +
             "\nUsername: " + this->username + "\nPassword: " + this->password);
 }
+
+string Person::save(){
+	return (encrypt(this->name, 'k') + "\n" +
+			encrypt(this->dob, 'k') + "\n" +
+			encrypt(this->username, 'k') + "\n" +
+			encrypt(this->password, 'k') + "\n");
+}
+
+string Person::getType(){
+	return "person";
+}
+

@@ -23,6 +23,8 @@ public:
     }
 
     virtual string getDetails();
+    virtual string getType();
+    virtual string save();
 
 private:
     double pay;
