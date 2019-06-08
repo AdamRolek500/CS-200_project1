@@ -10,7 +10,6 @@
 #include "client.h"
 #include "admin.h"
 
-
 using namespace std;
 
 void audit();
@@ -28,12 +27,13 @@ Person* chooseClient();
 
 vector<Person*> persons;
 Person *currentUser;
+Logger logger("bank");
 
 int main()
 {
 	load();
-	save();
     Menu main("Main Menu");
+    logger.log("Data file loaded.");
 	
 	// Login System
 	bool loggedIn = false;
@@ -41,6 +41,7 @@ int main()
 		loggedIn = login();
 	} while (!loggedIn);
 	
+	logger.log("Log on for user" + currentUser->getName());
 	cout << "Welcome " << currentUser->getName() << endl;
 	
 	// Allowing user to see options based on type
@@ -49,15 +50,18 @@ int main()
 	    main.addOption("Add Admin", addAdmin);
 	    main.addOption("Add Teller", addTeller);
 		main.addOption("Add Client", addClient); 
+		main.addOption("Save", save);
 	}else if(currentUser->getType() == "teller"){
 	    main.addOption("Audit", audit);
 		main.addOption("Add Client", addClient);
 		main.addOption("Deposit", deposit);
 		main.addOption("Withdraw", withdraw);
+		main.addOption("Save", save);
 	}else{
 		main.addOption("See Account", seeAccount);
 		main.addOption("Deposit", deposit);
 		main.addOption("Withdraw", withdraw);
+		main.addOption("Save", save);
 	}
 
     while(1)
@@ -147,19 +151,23 @@ Person* chooseClient(){
 void deposit(){
 	if(currentUser->getType() == "client"){
 		static_cast<Client*>(currentUser)->makeTransaction();
+		logger.log("Deposit for " + currentUser->getName());
 		return;
 	}
 	Person* cl = chooseClient();
 	static_cast<Client*>(cl)->makeTransaction();
+	logger.log("Deposit for " + cl->getName());
 }
 
 void withdraw(){
 	if(currentUser->getType() == "client"){
 		static_cast<Client*>(currentUser)->makeTransaction();
+		logger.log("Withdraw for " + currentUser->getName());
 		return;
 	}
 	Person* cl = chooseClient();
 	static_cast<Client*>(cl)->makeTransaction();
+	logger.log("Withdraw for " + cl->getName());
 }
 
 void audit(){
@@ -167,6 +175,7 @@ void audit(){
     vector<Person*>::iterator personPTR; 
 	for (personPTR = persons.begin(); personPTR < persons.end(); personPTR++) 
         cout << (*personPTR)->getDetails() << endl << endl;
+	logger.log("Audit Preformed");
 }
 
 bool login(){
@@ -212,6 +221,7 @@ void addClient(){
 	cout << "Enter Savings Balnce > ";
 	cin >> ac2;
 	
+	logger.log("Client Created: " + name);
 	persons.push_back(new Client(name, dob, username, password, id, ac1, ac2));
 }
 
@@ -235,6 +245,7 @@ void addAdmin(){
 	cout << "Enter Pay > ";
 	cin >> pay;
 	
+	logger.log("Admin Created: " + name);
 	persons.push_back(new Admin(name, dob, username, password, pay));
 }
 
@@ -258,6 +269,7 @@ void addTeller(){
 	cout << "Enter Pay > ";
 	cin >> pay;
 	
+	logger.log("Teller Created: " + name);
 	persons.push_back(new Teller(name, dob, username, password, pay));
 }
 
