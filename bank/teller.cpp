@@ -14,5 +14,18 @@ string Teller::getDetails()
 {
     ostringstream strs;
     strs << this->pay;
-    return Person::getDetails() + "\nPay: " + strs.str();
+    return "Teller\n" + Person::getDetails() + "\nPay: " + strs.str();
 }
+
+string Teller::save(){
+	ostringstream strs;
+    strs << this->pay;
+	return (this->getType() + "\n" +
+			Person::save() +
+			strs.str() + "\n");
+}
+
+string Teller::getType(){
+	return "teller";
+}
+
